@@ -1,0 +1,22 @@
+  Lowbird Image Navigator
+===========================
+
+This script is supposed to &quot;enhance&quot; image browsing on
+http://lowbird.com.
+
+It replaces the blue navigation bars at each side of the page with
+semi-transparent navigation handles placed in front of the image. These handles
+only appear with a fade effect when hovered.
+
+Furthermore it introduces a new image display size mode that fits the image
+horizontally into the browser window – but only for sufficently large images.
+Plus, it hides ads and changes the font to the default sans-serif, if
+configured to do so.
+
+System requirements:
+This works only in Firefox 3+ so far. WebKit (Konqueror and Safari) and
+Chrome/Chromium should work as well, but I didn't test it. Opera 10 is all
+bitchy about the "max-height" CSS property, so it doesn't work there and
+probably won't until the vendor fixes that; and of course neither does Internet
+Explorer 'cause no SVG support (although a plugin from Adobe may provide that
+support).
