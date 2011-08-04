@@ -1,0 +1,27 @@
+02.02.2011
+- Pfeile in Richtungs-Handles abgerundet
+- mehr Dokumentation
+- XPath-Methode(n) erneuert
+- Update auf jQuery 1.4.4
+- Makefile erstellt
+
+02.10.2010
+- CHANGELOG-Datei zum Paket hinzugefügt
+- Handles werden nach einem einstellbaren Zeitintervall ausgeblendet, auch wenn
+  der Cursor länger über ihnen verweilt.
+
+09.07.2010
+Da haben sich ein paar Dinge angesammelt:
+- jQuery ist nicht mehr im Skript enthalten, sondern wird von Google
+  nachgeladen.
+- Jeweils das vorherige und nächste Bild werden schonmal in den Browsercache
+  geladen.
+- Kommentar abendsenden mit Strg+Return (bei auf dem Textfeld liegendem Fokus)
+- Man kann sich bei der Kommentareingabe vorwärts(!) durch die Namen der
+  Benutzer, die das Bild bereits kommentiert haben, tabben ähnlich wie in div.
+  IRC-Clients. (fehlerhaft in Opera (s.
+  http://www.quirksmode.org/dom/events/keys.html "Prevent default keydown"))
+- Ich überlege, das bei GitHub rein zu stellen.
+
+16.01.2010
+- Update auf jQuery 1.4

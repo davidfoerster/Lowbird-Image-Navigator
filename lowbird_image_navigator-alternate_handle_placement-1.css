@@ -1,0 +1,6 @@
+@namespace url(http://www.w3.org/1999/xhtml);
+
+@-moz-document domain("www.lowbird.com") {
+	#viewer > .jquery-ui-navigator-handle-left { left: 0 !important; right: auto !important; }
+	#viewer > .jquery-ui-navigator-handle-right { left: auto !important; right: 0 !important; }
+}

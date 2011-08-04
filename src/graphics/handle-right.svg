@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   version="1.1"
+   width="150"
+   height="200"
+   id="handle"
+	onload="load(evt)"
+>
+<script type="text/ecmascript"><![CDATA[
+var doc, root, l1;
+
+function load(evt) {
+	doc = evt.target.ownerDocument;
+	l1 = doc.getElementById("layer1");
+	root = l1.ownerSVGElement;
+	
+	/*doc.onmousewheel = function(evt) {
+		alert(doc.toString() + "\n" + root.toString());
+		evt.preventDefault();
+	};*/
+}
+
+function clickEventTest() {
+	root.addEventListener("click", function() { alert("foo"); }, false);
+	root.style.cursor = "pointer";
+}
+
+function transformTest() {
+	/*
+	alert(l1.getAttribute("transform"));
+	debugger;
+	l1.setAttribute("transform", "scale(0.5) " + l1.getAttribute("transform"));
+	alert(l1.getAttribute("transform"));
+	*/
+	
+	var transform = root.createSVGTransform();
+	transform.setScale(0.5, 0.5);
+	alert(matrixToString(transform.matrix));
+	
+	debugger;
+	//var suspend = root.suspendRedraw(1000);
+	l1.transform.baseVal.insertItemBefore(transform, 0);
+	alert(transformListToString(l1.transform.baseVal));
+	//l1.transform.baseVal.consolidate();
+	//root.unsuspendRedraw(suspend);
+}
+
+function transformListToArray(transform) {
+	var a = new Array(transform.numberOfItems);
+	for (var i=a.length-1; i >= 0; i--)
+		a[i] = transform.getItem(i);
+	return a;
+}
+
+function transformListToString(transform) {
+	var s = "";
+	for (var i=0; i < transform.numberOfItems; i++)
+		s += i + ": " + matrixToString(transform.getItem(i).matrix) + "\n";
+	if (s.length) s = s.substring(0, s.length - 1);
+	return s;
+}
+
+function matrixToArray(matrix) {
+	return [matrix.a, matrix.b, matrix.c, matrix.d, matrix.e, matrix.f];
+}
+
+function matrixToString(matrix) {
+	return matrixToArray(matrix).join(", ");
+}
+
+]]></script>
+  <defs
+     id="defs4" />
+  <g
+     transform="translate(0,-852.36218)"
+     id="layer1">
+      <rect
+         width="150"
+         height="200"
+         x="0"
+         y="852.36218"
+         id="canvasrect"
+         style="fill:#ffffff" />
+      <path
+         d="m 20,852.36216 c -11.08,0 -20,8.92 -20,20 l 0,160.00004 c 0,11.08 8.92,20 20,20 l 102.0625,0 7.9375,0 20,0 0,-20 0,-160.00004 0,-20 -20,0 -7.9375,0 -102.0625,0 z"
+         id="bgrect"
+         style="fill:#000000" />
+      <path
+         d="m 41.397446,11.906608 -18.188023,10.500859 -18.1880216,10.50086 0,-21.00172 0,-21.0017183 L 23.209424,1.4057484 41.397446,11.906608 z"
+         transform="matrix(1.9308073,0,0,3.1185902,37.737939,915.23034)"
+         id="arrow"
+         style="fill:#ffffff" />
+  </g>
+</svg>

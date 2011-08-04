@@ -1,0 +1,310 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<title>Der lowe Bird fängt den Wurm!</title>
+	<link rel="stylesheet" type="text/css" href="soup-4606-6529-800-Dateien/lowbird.css">
+	<link rel="Shortcut Icon" href="soup-4606-6529-800-Dateien/lowbird.ico">
+	<script type="text/javascript" src="soup-4606-6529-800-Dateien/lowbird.js"></script>
+	<link rel="stylesheet" type="text/css" id="about-style">
+</head>
+
+<body>
+<div id="menu">
+	<a style="" href="http://www.lowbird.com/" id="home"><img title="Home" 
+id="logo" alt="LowBird" src="soup-4606-6529-800-Dateien/lowbird.png"></a>
+	
+	<div class="search">
+		<form action="/" method="post" onsubmit="return s()">
+			<input name="q" id="q" type="text">
+			<input class="color" value="" 
+onclick="swap($('colorpicker'),'hidden','visible')" type="button">
+			<input name="search" class="search" value="search" type="submit">
+			
+			<div id="colorpicker" class="hidden">
+				<div id="colorpickerCurrent"></div>
+				<div id="colorpickerValue">#FFFFFF</div>
+				<div id="colorpickerSV"><div id="colorpickerSVSelect"></div></div>
+				<div id="colorpickerH"><div id="colorpickerHSelect"></div></div>
+			</div>
+			<script type="text/javascript">
+				var cp = new colorpicker( 'colorpicker', 64, function(cp) {$('q').value = '0x' + cp.getHex();} ); // OMG, it's abbreviated "CP" !!111
+			</script>
+		</form>
+	</div>
+	
+	<div class="menuItems">
+		<a href="http://www.lowbird.com/users" title="Users">users</a> /
+		<a href="http://www.lowbird.com/quicktags" title="Quick Tags">quick 
+tags</a> /
+		<a href="http://www.lowbird.com/upload" title="Upload">upload</a> /
+		<a href="http://www.lowbird.com/static/bookmarklet" 
+title="Bookmarklet">bookmarklet</a> /
+		<a href="http://www.lowbird.com/board/" title="Lowbird:Board">board</a>
+ /
+		<a href="http://www.lowbird.com/static/chat/" title="Lowbird:Chat">chat</a>
+	</div>
+	
+	<div class="userMenu">
+					Hello
+			<a href="http://www.lowbird.com/user/dekadenZ">dekadenZ</a>
+			(<a href="http://www.lowbird.com/profile">profile</a> /
+			<a href="http://www.lowbird.com/logout">logout</a>)
+			</div>
+	
+	<div style="clear: both;"></div>
+</div>
+
+<div id="content">
+
+
+
+
+
+
+<div class="userInfo">
+	<img class="avatar" src="soup-4606-6529-800-Dateien/48d7c6534c58e.jpg" 
+height="40" width="40">
+	<div class="name">
+		<strong>
+			<a href="http://www.lowbird.com/user/marleila">marleila</a>
+		</strong>
+	</div>
+		<div class="info">
+		Score: <strong>2771</strong> /
+		Images: <strong>215</strong> 
+			</div>
+	<div style="clear: both;"></div>
+</div>
+
+<h1>
+	» Viewing
+			All
+	</h1>
+
+<div id="viewer">
+			<a 
+href="http://www.lowbird.com/all/view/2010/03/eglobe1-unbelievable-pictures-04"
+ class="prev" id="prevBar" title="Previous">Previous</a>
+		
+			<a href="http://www.lowbird.com/all/view/2010/03/scannen0002" 
+class="next" id="nextBar" title="Next">Next</a>
+		
+	<div id="imageContainer">
+		<img id="image" onclick="swap(this, 'scaled', 'full')" class="scaled" 
+src="soup-4606-6529-800-Dateien/soup-4606-6529-800.jpg" alt="crow krähe">
+	</div>
+	
+	
+	<div class="center">
+					<a 
+href="http://www.lowbird.com/all/view/2010/03/eglobe1-unbelievable-pictures-04"
+ title="Previous">« prev</a>
+				
+		<a href="http://www.lowbird.com/">home</a>
+		
+					<a href="http://www.lowbird.com/all/view/2010/03/scannen0002" 
+title="Next">next »</a>
+			</div>
+	
+	<div id="imageInfo">
+		<div class="rating">
+			<div class="ratingBase">
+				<div class="ratingCurrent" id="currentRating" style="width: 
+86.3158px;"></div>
+				<div class="ratingRate" id="userRating">
+					<a href="#" onclick="return rate(68611,1);" 
+onmouseout="sr('userRating',0);" onmouseover="sr('userRating',1);"></a>
+					<a href="#" onclick="return rate(68611,2);" 
+onmouseout="sr('userRating',0);" onmouseover="sr('userRating',2);"></a>
+					<a href="#" onclick="return rate(68611,3);" 
+onmouseout="sr('userRating',0);" onmouseover="sr('userRating',3);"></a>
+					<a href="#" onclick="return rate(68611,4);" 
+onmouseout="sr('userRating',0);" onmouseover="sr('userRating',4);"></a>
+					<a href="#" onclick="return rate(68611,5);" 
+onmouseout="sr('userRating',0);" onmouseover="sr('userRating',5);"></a>
+				</div>
+			</div>
+			<div id="loadRating" class="load"></div>
+			<span id="ratingDescription">
+									4.3 after 19 Votes							</span>
+			<div style="clear: both;"></div>
+					</div>
+	
+		<div class="date">
+			23. Mar 2010 13:45		</div>
+		
+		<div>
+			Tags: <span id="tags">crow krähe</span>
+							<a href="#" onclick="swap($('addTag'), 'hidden', 'visible'); 
+$('tagText').focus(); return false;">(add)</a>
+				<form class="hidden" id="addTag" action="" onsubmit="return 
+addTags(68611, $('tagText'));">
+					<input name="tags" id="tagText" type="text">
+					<input name="save" value="Add Tags" class="button" 
+onclick="addTags(68611, $('tagText'));" type="button">
+					<div id="loadTags" class="load"></div>
+				</form>
+					</div>
+		
+		Post in Forum: <input readonly="1" 
+value="[URL=http://www.lowbird.com][IMG]http://www.lowbird.com/data/images/2010/03/soup-4606-6529-800.jpg[/IMG][/URL]"
+ style="width: 400px; font-size: 10px;" 
+onclick="this.focus();this.select();" type="text">
+		
+		
+		<div class="teaser">
+										<div style="float: left; margin-left: 17px; width: 100px;">
+					<a href="http://www.hirnfick.to/" target="_blank">
+						<img src="soup-4606-6529-800-Dateien/lowbird1.png">
+					</a>
+				</div>
+							<div style="float: left; margin-left: 17px; width: 100px;">
+					<a href="http://www.spassfabrik.net/" target="_blank">
+						<img src="soup-4606-6529-800-Dateien/lowbird2.png">
+					</a>
+				</div>
+							<div style="float: left; margin-left: 17px; width: 100px;">
+					<a href="http://www.eblogx.com/" target="_blank">
+						<img src="soup-4606-6529-800-Dateien/lowbird4.png">
+					</a>
+				</div>
+							<div style="float: left; margin-left: 17px; width: 100px;">
+					<a href="http://www.bittepoppen.in/" target="_blank">
+						<img src="soup-4606-6529-800-Dateien/lowbird8.png">
+					</a>
+				</div>
+			 
+			<div style="clear: both;"></div>
+	
+
+<center>
+<!-- 	<script type="text/javascript" src="soup-4606-6529-800-Dateien/slave_002.htm"></script> -->
+	<script type="text/javascript">/*<[CDATA[*/
+var defaultbanner = '';
+
+defaultbanner += '<'+'object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,0,0" width="468" height="60"><'+'param name="movie" value="http://ad2games.com/ads/7830_6ff2fdb8da534459f3d2e4404a9fe2e0.swf?clickTAG=http://ad2games.com/slave.php?w=8036_451045581%26p=7830%26o=c%26rand=920a6d60f9437fe8e5771fd40ffdeee5"><'+'param name="quality" value="high"><'+'param name="wmode" value="transparent"><'+'/object>';
+
+//document.write(defaultbanner);
+	/*]]>*/</script>
+<br><object
+ classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" 
+codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.
+cab#version=8,0,0,0" id="waves" align="absmiddle" height="350" 
+width="468"><param name="movie" 
+value="http://content.clipster.ws/timescrub_120.swf"><param 
+name="flashvars" value="autoplay=false"><param name="quality" 
+value="high"><param name="allowFullScreen" value="true"><embed 
+src="soup-4606-6529-800-Dateien/timescrub_120.swf" 
+flashvars="autoplay=false" quality="high" bgcolor="#000000" 
+name="fullscreen" allowscriptaccess="always" allowfullscreen="true" 
+type="application/x-shockwave-flash" 
+pluginspage="http://www.macromedia.com/go/getflashplayer" align="middle"
+ height="350" width="468"></object>
+
+</center>
+			<!-- <center><script type="text/javascript" src="http://www.cloverads.net/cloverfield/loadjs.php?show=9"></script></center> //-->
+			</div>
+					<div class="comments">
+							<h3>4 Comments:</h3>
+						
+							<div class="comment">
+					<div class="commentHead">
+						<img class="avatarSmall" 
+src="soup-4606-6529-800-Dateien/4ba125db0dad6.jpg" height="16" 
+width="16">
+						<a href="http://www.lowbird.com/user/muri">muri</a>
+						at 23. Mar 2010 13:58											</div>
+					impressive =) wo ist das her?				</div>
+<div class="comment">
+					<div class="commentHead">
+						<img class="avatarSmall" 
+src="soup-4606-6529-800-Dateien/49620b32d87b2.jpg" height="16" 
+width="16">
+						<a href="http://www.lowbird.com/user/dekadenZ">dekadenZ</a>
+						at 02. Apr 2010 15:18											</div>
+					[test text]			
+	</div>
+							<div class="comment">
+					<div class="commentHead">
+						<img class="avatarSmall" 
+src="soup-4606-6529-800-Dateien/48d7c6534c58e.jpg" height="16" 
+width="16">
+						<a href="http://www.lowbird.com/user/marleila">marleila</a>
+						at 23. Mar 2010 14:13											</div>
+					<a href="http://pknives.deviantart.com/art/Monsieur-Crow-144119540">pknives.deviantart.com/art/Monsieur-Crow-144119540</a>
+				</div>
+							<div class="comment">
+					<div class="commentHead">
+						<img class="avatarSmall" 
+src="soup-4606-6529-800-Dateien/4ad3ac57dd8e6.jpg" height="16" 
+width="16">
+						<a href="http://www.lowbird.com/user/DeadWaste">DeadWaste</a>
+						at 23. Mar 2010 16:12											</div>
+					und warum postest du es dann nicht in voller auflösung :P<br>
+<br>
+<a 
+href="http://fc04.deviantart.net/fs51/f/2009/323/4/5/Monsieur_Crow_by_PKNIVES.jpg">fc04.deviantart.net/fs51/f/2009/323/4/5/Monsieur_Crow_by_PKNIVES.jpg</a>
+				</div>
+							<div class="comment">
+					<div class="commentHead">
+						<img class="avatarSmall" 
+src="soup-4606-6529-800-Dateien/49620b32d87b2.jpg" height="16" 
+width="16">
+						<a href="http://www.lowbird.com/user/dekadenZ">dekadenZ</a>
+						at 02. Apr 2010 15:18											</div>
+					weil das die maximal zulässige auflösung und größe überschreitet			
+	</div>
+						
+							<form method="post" class="addComment" 
+action="/all/view/2010/03/soup-4606-6529-800">
+					<div>
+						<textarea name="content" rows="3" cols="60"></textarea>
+						<input class="submit" name="addComment" value="Submit Comment" 
+type="submit">
+					</div>
+				</form>
+					</div>
+		
+	</div>
+</div>
+
+<script type="text/javascript">
+	ieAdjustHeight(0);
+</script>
+
+
+
+</div>
+
+<div id="footer">
+	Copyright © 2010 Lowbird.com. All Rights Reserved. / 
+	<a style="color: rgb(133, 77, 22);" 
+href="http://www.lowbird.com/static/abuse/" title="Abuse/Request 
+Deletion">Abuse/Request Deletion</a> /
+	<a style="color: rgb(133, 77, 22);" 
+href="http://www.lowbird.com/static/sexxygirl/" title="seXXygirl - Jung,
+ frech und dauergeil!!">seXXygirl</a> /
+	<a style="color: rgb(133, 77, 22);" href="http://www.funpics.me/" 
+title="Fun Pics" target="_blank">Fun Pics</a> / 	
+	<a style="color: rgb(133, 77, 22);" 
+href="http://www.lowbird.com/bittepoppen/" title="Bitte Poppen">Bitte 
+Poppen</a> / 
+	<a style="color: rgb(133, 77, 22);" 
+href="http://www.lowbird.com/sexykurven/" title="Sexy Kurven">Sexy 
+Kurven</a> / 
+	<a style="color: rgb(133, 77, 22);" href="http://www.tinyprice.de/" 
+title="Tinyprice">Gutscheine</a> / 
+	<a style="color: rgb(133, 77, 22);" 
+href="http://www.schnaeppchenweb.net/kostenloses" 
+title="SchnaeppchenWeb">Kostenloses</a>
+</div>
+
+<script src="soup-4606-6529-800-Dateien/amthing.js" type="text/javascript"></script>
+<script type="text/javascript">/*<[CDATA[*/
+var defaultbanner = '';
+
+document.write(defaultbanner);
+/*]]>*/</script>
+<!-- <script type="text/javascript" src="jquery.js"></script> -->
+<script type="text/javascript" src="../lowbird_image_navigator.js"></script>
+</body></html>
