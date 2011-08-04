@@ -12,7 +12,7 @@ PACKAGE_NAME = $(DISTDIR)$(PROJECT).ppmd.7z.zip
 
 # Options
 7ZOPT=-t7z -m0=ppmd -mx=9 -mmem=192m -ms=on
-SED_RELEASE = s/^(\\s*).*\\/\\/\\s*@sed\\s+(.*)/\\1\\2/;
+SED_RELEASE = s/^(\\s*).*\\/\\/\\s*@sed\\s+(.*)/\\1\\2/
 
 
 default: mozilla
@@ -34,7 +34,7 @@ mozilla-debug: mozilla
 $(MOZILLA_TARGET): $(PROJECT).js $(PROJECT).user.js.header $(PROJECT).user.js.prolog $(PROJECT).user.js.trailing
 	$(CP) $(PROJECT).user.js.header $@ && \
 	cat $(PROJECT).user.js.prolog >> $@ && \
-	sed -r "$(SED_RELEASE)s/\\\\/\\\\\\\\/g;s/'/\\\\'/g;s/$$/\\\\n\\\\/" $(PROJECT).js >> $@ && \
+	sed -r "$(SED_RELEASE);"'s/\\/\\\\/g;'"s/'/\\\\'/g;"'s/$$/\\n\\/' $(PROJECT).js >> $@ && \
 	cat $(PROJECT).user.js.trailing >> $@
 
 opera: $(OPERA_TARGET)

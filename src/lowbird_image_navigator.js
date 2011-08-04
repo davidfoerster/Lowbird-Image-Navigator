@@ -9,15 +9,16 @@
   handles only appear with a fade effect when hovered.</p>
   <p>Furthermore it introduces a new image display size mode that fits the image
   horizontally into the browser window&mdash;but only for sufficently large
-  images. Plus, it hides ads and changes the font to a more appealing one (IMHO)
+  images. Plus, it hides ads and changes the font to to the default sans-serif,
   if configured to do so.</p>
 
   <p><em>System requirements:</em> this works only in Firefox 3+ so far. WebKit
-  (Konqueror and Safari) should work as well, but I didn't test it. Opera 10 is
-  all bitchy about the <code style="white-space: nowrap;">max-height</code> CSS
-  property, so it doesn't work there and probably won't until the vendor fixes
-  that; and of course neither does Internet Explorer 'cause no SVG support
-  (although a plugin from Adobe may provide that support).</p>
+  (Konqueror and Safari) and Chrome/Chromium should work as well, but I didn't
+  test it. Opera 10 is all bitchy about the
+  <code style="white-space: nowrap;">max-height</code> CSS property, so it
+  doesn't work there and probably won't until the vendor fixes that; and of
+  course neither does Internet Explorer 'cause no SVG support (although a plugin
+  from Adobe may provide that support).</p>
 
 
   <p>created by
@@ -48,7 +49,7 @@ var GlobalSettings = {
 		    <li>Any other value does nothing.</li>
 		  </ul>
 		*/
-		teaser: "hide", // @sed teaser: "move end",
+		teaser: null,
 
 		/**
 		  <ul>
@@ -61,7 +62,15 @@ var GlobalSettings = {
 
 		style: {
 			/**
-			  Changes the default font style
+			  Changes the default font font family and a few other things.
+			  <ul>
+			    <li><code>true</code> sets the font family to sans-serif.</li>
+			    <li><code>false</code> prevents these changes completely.</li>
+			    <li><code>[any string]</code> sets the font family to that
+			      string. Please use valid CSS notation and enclose font names
+			      with spaces in single or double quotation marks.</li>
+			    <li>Any other value results to undefined behaviour.</li>
+			  </ul>
 			*/
 			changeFont: true
 		}
@@ -2896,16 +2905,20 @@ prefetchImage.getImageByPage = function(page, status) {
 
 
 changeCSSRule("html", "height", null);
-if (GlobalSettings.page.style.changeFont) {
-	addStyle(
-		'body, textarea, input { font-family: "Bitstream Vera Sans","DejaVu Sans","Lucida Grande",Arial,Verdana,"Trebuchet MS",sans-serif; }',
-		"body { font-size: 75%; }",
-		"textarea { font-size: 100%; }",
-		"#imageInfo { line-height: 140%; }",
-		"input.button { border-color: #666; }",
-		".comment { overflow: auto; }"
-	);
-}
+
+(function(font) {
+	if (font) {
+		if (font === true)
+			font = "sans-serif";
+	
+		addStyle(
+			'body, textarea, input { font-family: '+font+'; }',
+			"#imageInfo { line-height: 140%; }",
+			"input.button { border-color: #666; }",
+			".comment { overflow: auto; }"
+		);
+	}
+})(GlobalSettings.page.style.changeFont);
 
 /*
   The following anonymous function unleashes the action of this script upon loading.
