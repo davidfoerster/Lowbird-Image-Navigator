@@ -1,8 +1,7 @@
   Lowbird Image Navigator
 ===========================
 
-This script is supposed to &quot;enhance&quot; image browsing on
-http://lowbird.com.
+This script is supposed to "enhance" image browsing on http://lowbird.com.
 
 It replaces the blue navigation bars at each side of the page with
 semi-transparent navigation handles placed in front of the image. These handles
