@@ -10,7 +10,7 @@ svg: $(SVG_BASE64)
 
 %_.svg.txt: %_.svg
 	base64 -w 80 $< | sed 's/$$/\\/' > $@
-	
+
 clean:
 	rm -f $(SVG_BASE64)
 

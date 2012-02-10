@@ -9,9 +9,9 @@ function swap(e, c1, c2) { e.className = e.className == c1 ? c2 : c1; };
 
 var ieAdjustCount = 0;
 function ieAdjustHeight( oldHeight ) {
-	if( 
+	if(
 		!document.all || // Moz doesn't need this shit!
-		!$('viewer') || 
+		!$('viewer') ||
 		(
 			$('viewer').scrollHeight < oldHeight + 50 &&
 			ieAdjustCount > 10
@@ -29,10 +29,10 @@ function ieAdjustHeight( oldHeight ) {
 function del( imageId ) {
 	if( !confirm( 'Delete this image?' ) ) return false;
 	$( 'loadDelete' ).style.display = 'block';
-	post( 
-		$('home').href + 'json.php?delete', 
-		'id='+imageId, 
-		function(){ 
+	post(
+		$('home').href + 'json.php?delete',
+		'id='+imageId,
+		function(){
 			$( 'loadDelete' ).style.display = 'none';
 			$( 'del' ).style.display = 'none';
 		}
@@ -43,10 +43,10 @@ function del( imageId ) {
 function ban( userId, e ) {
 	if( !confirm( 'Ban this user?' ) ) return false;
 	var cdiv = e.parentNode;
-	post( 
-		$('home').href + 'json.php?banUser', 
-		'id='+userId, 
-		function(){ 
+	post(
+		$('home').href + 'json.php?banUser',
+		'id='+userId,
+		function(){
 			cdiv.style.display = 'none';
 		}
 	);
@@ -56,10 +56,10 @@ function ban( userId, e ) {
 function delComment( commentId, e ) {
 	if( !confirm( 'Delete this comment?' ) ) return false;
 	var cdiv = e.parentNode.parentNode.parentNode;
-	post( 
-		$('home').href + 'json.php?deleteComment', 
-		'id='+commentId, 
-		function(){ 
+	post(
+		$('home').href + 'json.php?deleteComment',
+		'id='+commentId,
+		function(){
 			cdiv.style.display = 'none';
 		}
 	);
@@ -69,10 +69,10 @@ function delComment( commentId, e ) {
 function addTags( imageId, inputField ) {
 	$( 'loadTags' ).style.display = 'block';
 	tags = encodeURIComponent(inputField.value);
-	post( 
-		$('home').href + 'json.php?addTags', 
-		'id='+imageId+'&tags='+tags, 
-		function(){ 
+	post(
+		$('home').href + 'json.php?addTags',
+		'id='+imageId+'&tags='+tags,
+		function(){
 			q = ( eval('('+req.responseText+')') );
 			if( q.tags ) {
 				$('tags').innerHTML = q.tags;
@@ -92,9 +92,9 @@ function sr( id, scale ) {
 
 function rate( imageId, score ) {
 	$( 'loadRating' ).style.display = 'block';
-	post( 
-		$('home').href + 'json.php?rate', 
-		'id='+imageId+'&score='+score, 
+	post(
+		$('home').href + 'json.php?rate',
+		'id='+imageId+'&score='+score,
 		function() {
 			q = ( eval('('+req.responseText+')') );
 			$( 'loadRating' ).style.display = 'none';
@@ -110,11 +110,11 @@ function post( url, params, callback ) {
 	if (window.ActiveXObject) { // ie
 		try {
 			req = new ActiveXObject( 'Msxml2.XMLHTTP' );
-		} 
+		}
 		catch (e) {
 			try {
 				req = new ActiveXObject( 'Microsoft.XMLHTTP' );
-			} 
+			}
 			catch (e) {}
 		}
 	}
@@ -122,12 +122,12 @@ function post( url, params, callback ) {
 		req = new XMLHttpRequest();
 		req.overrideMimeType( 'text/plain' );
 	}
-	req.onreadystatechange = function(){ 
+	req.onreadystatechange = function(){
 		if (req.readyState == 4 && req.status == 200) {
 			callback();
 		}
 	};
-	
+
 	if( !req ) return false;
 	req.open( 'POST', url, true );
 	req.setRequestHeader( 'Content-type', 'application/x-www-form-urlencoded; charset=UTF-8' );
@@ -149,25 +149,25 @@ function colorpicker( id, size, callback ) {
 	var that = this;
 	this.size = size;
 	this.callback = callback;
-	
+
 	this.mode = 'none';
-	
+
 	this.sv = $(id+'SV');
 	this.svselect = $(id+'SVSelect');
 	this.h = $(id+'H');
 	this.hselect = $(id+'HSelect');
 	this.value = $(id+'Value');
 	this.current = $(id+'Current');
-	
+
 	this.cap = function( v, min, max ) {
 		return Math.min(Math.max(min,v),max);
 	}
-	
+
 	this.getMousPos = function( event ) {
 		if(event.pageX || event.pageY){
-			return { 
-				'x': event.pageX, 
-				'y': event.pageY 
+			return {
+				'x': event.pageX,
+				'y': event.pageY
 			};
 		}
 		return {
@@ -187,17 +187,17 @@ function colorpicker( id, size, callback ) {
 			}
 		}
 		return {
-			'x':curleft, 
+			'x':curleft,
 			'y':curtop
 		};
-	}	
-	
-	
+	}
+
+
 	this.release = function() {
 		document.onmousemove = '';
 		this.mode = 'none';
 	}
-	
+
 	this.move = function( event ) {
 		if( this.mode == 'sv' ) {
 			var mouse = this.getMousPos( event );
@@ -215,48 +215,48 @@ function colorpicker( id, size, callback ) {
 			this.sv.style.backgroundColor = '#' + this.rgb2hex(this.hsv2rgb( {'h':1-((y+3)/this.size), 's':1, 'v':1} ));
 		}
 		else return;
-		
+
 		var hex = this.getHex();
 		this.current.style.backgroundColor = '#' + hex;
 		this.value.innerHTML = '#' + hex;
 		this.callback( this );
 	}
-	
+
 	this.sv.onmousedown = function() {
 		that.mode = 'sv';
 		document.onmousemove = function( event ) { that.move( event ) };
 		document.onmouseup = that.release;
 	}
-	
+
 	this.h.onmousedown = function() {
 		that.mode = 'h';
 		document.onmousemove = function( event ) { that.move( event ) };
 		document.onmouseup = that.release;
 	}
-	
-	
+
+
 	this.getHSV = function() {
 		var svpos = this.getObjPos( this.sv );
 		var svselectpos = this.getObjPos( this.svselect );
-		
+
 		var hpos = this.getObjPos( this.h );
 		var hselectpos = this.getObjPos( this.hselect );
-		
+
 		return {
 			'h': 1 - (this.cap(hselectpos.y - hpos.y + 3, 0, this.size) / this.size),
 			's': this.cap(svselectpos.x - svpos.x + 2, 0, this.size) / this.size,
 			'v': 1 - (this.cap(svselectpos.y - svpos.y + 4, 0, this.size) / this.size)
 		}
 	}
-	
+
 	this.getRGB = function() {
 		return this.hsv2rgb( this.getHSV() );
 	}
-	
+
 	this.getHex = function() {
 		return this.rgb2hex( this.getRGB() );
 	}
-	
+
 	this.toHex = function(v) { v=Math.round(Math.min(Math.max(0,v),255)); return("0123456789ABCDEF".charAt((v-v%16)/16)+"0123456789ABCDEF".charAt(v%16)); }
 	this.rgb2hex = function(c) { return this.toHex(c.r)+this.toHex(c.g)+this.toHex(c.b); }
 
@@ -269,7 +269,7 @@ function colorpicker( id, size, callback ) {
 			A=Math.round(255*V*(1.0-S));
 			B=Math.round(255*V*(1.0-(S*F)));
 			C=Math.round(255*V*(1.0-(S*(1.0-F))));
-			V=Math.round(255*V); 
+			V=Math.round(255*V);
 
 			switch(Math.floor(H)) {
 				case 0: R=V; G=C; B=A; break;
@@ -281,7 +281,7 @@ function colorpicker( id, size, callback ) {
 			}
 			return {'r': (R?R:0), 'g': (G?G:0), 'b': (B?B:0)};
 		}
-		else 
+		else
 			return {'r': (Math.round(V*255)), 'g': (Math.round(V*255)), 'b': (Math.round(V*255))};
 	}
 }

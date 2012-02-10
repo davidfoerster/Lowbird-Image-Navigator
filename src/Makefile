@@ -21,7 +21,7 @@ all: mozilla opera
 
 package: $(PACKAGE_NAME)
 
-$(PACKAGE_NAME): $(MOZILLA_TARGET) $(OPERA_TARGET) CHANGELOG 
+$(PACKAGE_NAME): $(MOZILLA_TARGET) $(OPERA_TARGET) CHANGELOG
 	cd $(DISTDIR) && \
 	rm -f $(@F) && \
 	$(7Z) a $(7ZOPT) $(@F) $(^F) $(SRCDIR)$(PROJECT).js

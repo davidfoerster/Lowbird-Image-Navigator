@@ -247,7 +247,7 @@ var GlobalSettings = {\n\
 		  A factor for icon fading delays. 0 means no fading.\n\
 		*/\n\
 		speedfactor: 1,\n\
-		\n\
+\n\
 		/**\n\
 		  Handles disappear after the indicated delay (in milliseconds).\n\
 		  0 means no disappearing.\n\
@@ -552,14 +552,14 @@ jQuery.extend(XPathSearch.prototype, {\n\
 					fun.call(this.result.iterateNext(), i);\n\
 				}\n\
 				break;\n\
-		\n\
+\n\
 			case XPathResult.UNORDERED_NODE_SNAPSHOT_TYPE:\n\
 			case XPathResult.ORDERED_NODE_SNAPSHOT_TYPE:\n\
 				for (var i = 0; i < this.result.snapshotLength; i++) {\n\
 					fun.call(this.result.snapshotItem(i), i);\n\
 				}\n\
 				break;\n\
-			\n\
+\n\
 			default:\n\
 				var val = this.singleValue();\n\
 				if (val !== null) {\n\
@@ -569,7 +569,7 @@ jQuery.extend(XPathSearch.prototype, {\n\
 		}\n\
 		return this;\n\
 	},\n\
-	\n\
+\n\
 	/**\n\
 	  @return The result of a single value result type, or <code>null</code> if\n\
 	    no result is available.\n\
@@ -584,11 +584,11 @@ jQuery.extend(XPathSearch.prototype, {\n\
 				return this.result.stringValue;\n\
 			case XPathResult.BOOLEAN_TYPE:\n\
 				return this.result.booleanValue;\n\
-			\n\
+\n\
 			case XPathResult.ANY_UNORDERED_NODE_TYPE:\n\
 			case XPathResult.FIRST_ORDERED_NODE_TYPE:\n\
 				return this.result.singleNodeValue;\n\
-			\n\
+\n\
 			default:\n\
 				return null;\n\
 		}\n\
@@ -722,7 +722,7 @@ jQuery.extend(Array.prototype, {\n\
 		}\n\
 		return this;\n\
 	},\n\
-	\n\
+\n\
 	/**\n\
 	  @param {Number} i An index to convert to a &quot;real&quot; index on this\n\
 	    array\n\
@@ -765,7 +765,7 @@ jQuery.extend(Array.prototype, {\n\
 	  Invokes <code>callback</code> for every array entry. If the callback\n\
 	  returns a value which is not <code>undefined<code> and evaluates to\n\
 	  <code>false</code>, this method return immediately.\n\
-	  \n\
+\n\
 	  @param {Function} callback A handler function\n\
 	  @param {Number} [start=0] The start index\n\
 	  @param {Number} [len] The maximum number of entries to handle\n\
@@ -981,7 +981,7 @@ jQuery.extend(String.prototype, {\n\
 	  @addon\n\
 	*/\n\
 	toInt: function() { return parseInt(this); },\n\
-	\n\
+\n\
 	/**\n\
 	  @return The float representation of this string\n\
 	  @type Number\n\
@@ -2101,7 +2101,7 @@ jQuery.extend(Navigator.prototype, {\n\
 	    function as properties, or an orientation string\n\
 	  @param {String} type The event type to listen to\n\
 	  @param {Function} callback The event handler\n\
-	  @param {Boolean} [useCapture=false] The 3rd argument of \n\
+	  @param {Boolean} [useCapture=false] The 3rd argument of\n\
 	    {@link Node.addEventListener}\n\
 	  @return <code>this</code>\n\
 	  @type Navigator\n\
@@ -2346,7 +2346,7 @@ jQuery.extend(Navigator, {\n\
 	_onmouseover: function() {\n\
 		this.firstChild.style.visibility = "visible";\n\
 		var o = $(this).stop().fadeTo(jQuery.fx.speeds._default * GlobalSettings.handleSettings.speedfactor, GlobalSettings.handleSettings.opacity);\n\
-		\n\
+\n\
 		if (GlobalSettings.handleSettings.hideAfter > 0) {\n\
 			setTimeout(\n\
 				function(o, Navigator) { Navigator._onmouseout.call(o); },\n\
@@ -2518,7 +2518,7 @@ Navigator.classNames.handle.css + "-" + or + " > * > * {\\n\\\n\
     (i. e. when polling ready state changes or resizing). <em>You should set\n\
     this to <code>null</code>!</em>\n\
   @param {Node|jQuery} [img] The image node to put nagivators on. <em>You must\n\
-    set this, when \n\
+    set this, when\n\
   @param {Number} [timeout] The next timeout interval length (if any)\n\
 */\n\
 function adjustImage(evt, img, timeout) {\n\
@@ -2553,7 +2553,7 @@ function adjustImage(evt, img, timeout) {\n\
 				GlobalSettings.handles.center.object.src.scaled = GlobalSettings.handles.center.object.src["fit-width"];\n\
 				delete GlobalSettings.handles.center.object.src["fit-width"];\n\
 			}\n\
-			\n\
+\n\
 			arguments.callee.registerResizeHandler(img);\n\
 		} else {\n\
 			arguments.callee.registerResizeHandler(img);\n\
@@ -2922,7 +2922,7 @@ changeCSSRule("html", "height", null);\n\
 	if (font) {\n\
 		if (font === true)\n\
 			font = "sans-serif";\n\
-	\n\
+\n\
 		addStyle(\n\
 			\'body, textarea, input { font-family: \'+font+\'; }\',\n\
 			"#imageInfo { line-height: 140%; }",\n\

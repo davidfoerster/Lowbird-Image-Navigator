@@ -4,28 +4,28 @@
 var pu = new popUnder( 'lowbirdPU', 'http://www.hirnfick.to/' );
 
 function popUnder( ident, url ) {
-	
+
 	this.ident = ident;
 	this.url = url;
 	this.window = null;
 	this.windowProps = "toolbar=1,location=1,directories=0,status=1,menubar=1,width=980,height=600,scrollbars=1,resizable=1,top=0,left=0";
-	
+
 	this.cookies = new CookieManager( null, '/', 0 );
-	
+
 	this.setup = function() {
 		if( !this.cookies.get(this.ident) ) {
 			var that = this;
 			document.onclick = function () { that.pop(); }
 		}
 	}
-	
+
 	this.pop = function() {
 		if( !this.window ) {
-			this.window = window.open( 
-				this.url, this.ident, 
-				"scrollbars=1,status=1,toolbar=1,resizable=1,menubar=1,location=1,top=0,left=0,width=" 
-					+ screen.availWidth 
-					+ ",height=" 
+			this.window = window.open(
+				this.url, this.ident,
+				"scrollbars=1,status=1,toolbar=1,resizable=1,menubar=1,location=1,top=0,left=0,width="
+					+ screen.availWidth
+					+ ",height="
 					+ screen.availHeight
 			);
 			if( this.window ) {
@@ -41,7 +41,7 @@ function popUnder( ident, url ) {
 		}
 		self.focus();
 	}
-	
+
 	this.setup();
 }
 
@@ -51,21 +51,21 @@ function CookieManager( domain, path, days ) {
 		path: path,
 		days: days
 	}
-		
+
 	this.set = function( name, value ) {
 		var date = new Date();
 		date.setTime( date.getTime() + this.settings.days * 2 * 60 * 60 * 1000 );
 		var time = date.toGMTString();
-		
+
 		document.cookie = (
-			name + '=' 
-			+ encodeURIComponent(value) 
+			name + '='
+			+ encodeURIComponent(value)
 			+ ( this.settings.domain ? '; domain=' + this.settings.domain : '' )
 			+ ( this.settings.path ? '; path=' + this.settings.path : '' )
 			+ ( this.settings.days ?'; expires=' + time : '' )
 		);
 	}
-	
+
 	this.get = function( name ) {
 		var value = document.cookie.match('(?:^|;)\\s*' + name + '=([^;]*)');
 		return value ? decodeURIComponent(value[1]) : false;

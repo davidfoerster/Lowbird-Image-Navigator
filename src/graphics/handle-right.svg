@@ -18,7 +18,7 @@ function load(evt) {
 	doc = evt.target.ownerDocument;
 	l1 = doc.getElementById("layer1");
 	root = l1.ownerSVGElement;
-	
+
 	/*doc.onmousewheel = function(evt) {
 		alert(doc.toString() + "\n" + root.toString());
 		evt.preventDefault();
@@ -37,11 +37,11 @@ function transformTest() {
 	l1.setAttribute("transform", "scale(0.5) " + l1.getAttribute("transform"));
 	alert(l1.getAttribute("transform"));
 	*/
-	
+
 	var transform = root.createSVGTransform();
 	transform.setScale(0.5, 0.5);
 	alert(matrixToString(transform.matrix));
-	
+
 	debugger;
 	//var suspend = root.suspendRedraw(1000);
 	l1.transform.baseVal.insertItemBefore(transform, 0);

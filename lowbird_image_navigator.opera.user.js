@@ -244,7 +244,7 @@ var GlobalSettings = {
 		  A factor for icon fading delays. 0 means no fading.
 		*/
 		speedfactor: 1,
-		
+
 		/**
 		  Handles disappear after the indicated delay (in milliseconds).
 		  0 means no disappearing.
@@ -549,14 +549,14 @@ jQuery.extend(XPathSearch.prototype, {
 					fun.call(this.result.iterateNext(), i);
 				}
 				break;
-		
+
 			case XPathResult.UNORDERED_NODE_SNAPSHOT_TYPE:
 			case XPathResult.ORDERED_NODE_SNAPSHOT_TYPE:
 				for (var i = 0; i < this.result.snapshotLength; i++) {
 					fun.call(this.result.snapshotItem(i), i);
 				}
 				break;
-			
+
 			default:
 				var val = this.singleValue();
 				if (val !== null) {
@@ -566,7 +566,7 @@ jQuery.extend(XPathSearch.prototype, {
 		}
 		return this;
 	},
-	
+
 	/**
 	  @return The result of a single value result type, or <code>null</code> if
 	    no result is available.
@@ -581,11 +581,11 @@ jQuery.extend(XPathSearch.prototype, {
 				return this.result.stringValue;
 			case XPathResult.BOOLEAN_TYPE:
 				return this.result.booleanValue;
-			
+
 			case XPathResult.ANY_UNORDERED_NODE_TYPE:
 			case XPathResult.FIRST_ORDERED_NODE_TYPE:
 				return this.result.singleNodeValue;
-			
+
 			default:
 				return null;
 		}
@@ -719,7 +719,7 @@ jQuery.extend(Array.prototype, {
 		}
 		return this;
 	},
-	
+
 	/**
 	  @param {Number} i An index to convert to a &quot;real&quot; index on this
 	    array
@@ -762,7 +762,7 @@ jQuery.extend(Array.prototype, {
 	  Invokes <code>callback</code> for every array entry. If the callback
 	  returns a value which is not <code>undefined<code> and evaluates to
 	  <code>false</code>, this method return immediately.
-	  
+
 	  @param {Function} callback A handler function
 	  @param {Number} [start=0] The start index
 	  @param {Number} [len] The maximum number of entries to handle
@@ -978,7 +978,7 @@ jQuery.extend(String.prototype, {
 	  @addon
 	*/
 	toInt: function() { return parseInt(this); },
-	
+
 	/**
 	  @return The float representation of this string
 	  @type Number
@@ -2098,7 +2098,7 @@ jQuery.extend(Navigator.prototype, {
 	    function as properties, or an orientation string
 	  @param {String} type The event type to listen to
 	  @param {Function} callback The event handler
-	  @param {Boolean} [useCapture=false] The 3rd argument of 
+	  @param {Boolean} [useCapture=false] The 3rd argument of
 	    {@link Node.addEventListener}
 	  @return <code>this</code>
 	  @type Navigator
@@ -2343,7 +2343,7 @@ jQuery.extend(Navigator, {
 	_onmouseover: function() {
 		this.firstChild.style.visibility = "visible";
 		var o = $(this).stop().fadeTo(jQuery.fx.speeds._default * GlobalSettings.handleSettings.speedfactor, GlobalSettings.handleSettings.opacity);
-		
+
 		if (GlobalSettings.handleSettings.hideAfter > 0) {
 			setTimeout(
 				function(o, Navigator) { Navigator._onmouseout.call(o); },
@@ -2515,7 +2515,7 @@ Navigator.classNames.handle.css + "-" + or + " > * > * {\n\
     (i. e. when polling ready state changes or resizing). <em>You should set
     this to <code>null</code>!</em>
   @param {Node|jQuery} [img] The image node to put nagivators on. <em>You must
-    set this, when 
+    set this, when
   @param {Number} [timeout] The next timeout interval length (if any)
 */
 function adjustImage(evt, img, timeout) {
@@ -2550,7 +2550,7 @@ function adjustImage(evt, img, timeout) {
 				GlobalSettings.handles.center.object.src.scaled = GlobalSettings.handles.center.object.src["fit-width"];
 				delete GlobalSettings.handles.center.object.src["fit-width"];
 			}
-			
+
 			arguments.callee.registerResizeHandler(img);
 		} else {
 			arguments.callee.registerResizeHandler(img);
@@ -2919,7 +2919,7 @@ changeCSSRule("html", "height", null);
 	if (font) {
 		if (font === true)
 			font = "sans-serif";
-	
+
 		addStyle(
 			'body, textarea, input { font-family: '+font+'; }',
 			"#imageInfo { line-height: 140%; }",
