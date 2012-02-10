@@ -2,8 +2,9 @@
 // @name           Lowbird Image Navigator
 // @namespace      tag:protoplasma.org/scripts/gm/lowbird-navigator
 // @description    makes image scaling on lowbird.com a little more comfortable
-// @include        http://www.lowbird.com/*/view/*
-// @include        http://lowbird.com/*/view/*
+// @include        *://www.lowbird.com/*/view/*
+// @include        *://lowbird.com/*/view/*
+// @icon           http://www.lowbird.com/media/lowbird.ico
 // ==/UserScript==
 
 
