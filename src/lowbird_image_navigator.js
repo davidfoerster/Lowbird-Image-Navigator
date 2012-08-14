@@ -269,7 +269,7 @@ var GlobalSettings = {
 		  <code>false</code> and press the ALT key during scrolling to scroll
 		  horizontally.
 		*/
-		horizontalWheelPresent: false
+		horizontalMouseWheelPresent: true
 	},
 
 	prefetch: {
@@ -3016,9 +3016,11 @@ function load_script(src, data, callback, condition) {
 
 load_script(
 	(window.location.protocol == "file:") ? "jquery.js" : "http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js",
-	function() {
-		jQuery.noConflict();
-		run(jQuery);
+	function(condition) {
+		if (condition !== false) {
+			jQuery.noConflict();
+			run(jQuery);
+		}
 	},
 	!window.jQuery);
 
