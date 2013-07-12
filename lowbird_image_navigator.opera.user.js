@@ -5,6 +5,7 @@
 // @include        *://www.lowbird.com/*/view/*
 // @include        *://lowbird.com/*/view/*
 // @icon           http://www.lowbird.com/media/lowbird.ico
+// @grant          none
 // ==/UserScript==
 
 
@@ -279,7 +280,7 @@ var GlobalSettings = {
 		  <code>false</code> and press the ALT key during scrolling to scroll
 		  horizontally.
 		*/
-		horizontalWheelPresent: false
+		horizontalMouseWheelPresent: true
 	},
 
 	prefetch: {
@@ -1769,7 +1770,7 @@ jQuery.fn.extend({
 	  @addon
 	*/
 	maxDimWorkaround: function() {
-		if (jQuery.browser.opera && jQuery.browser.majorVersion >= 9.8) {
+		if (jQuery.browser.opera) {
 			for (var i=this.length-1; i >= 0; i--) {
 				var classes = this[i].parentNode.parentNode.className.split();
 				this[i].style.height = classes.contains("scaled") ? GlobalSettings.image.minHeightAbs.px() : "";
@@ -2027,7 +2028,7 @@ jQuery.extend(Navigator.prototype, {
 						container_new
 							.hover(Navigator._onmouseover, Navigator._onmouseout)
 							.css("display", "");
-					if (jQuery.browser.opera && jQuery.browser.majorVersion >= 9.8)
+					if (jQuery.browser.opera)
 						container_new.find("object").css("display", "");
 
 					for (var or in options)
@@ -2177,7 +2178,7 @@ jQuery.extend(Navigator.prototype, {
 			objectTag = document.createElement("img");
 			objectTag.src = src;
 		} else {
-			if (jQuery.browser.opera && jQuery.browser.majorVersion < 9.8) {
+			if (jQuery.browser.opera) {
 				objectTag = document.createElement("iframe");
 				objectTag.setAttribute("frameborder", "0");
 				objectTag.scrolling = "no";
@@ -2188,7 +2189,7 @@ jQuery.extend(Navigator.prototype, {
 				if (jQuery.browser.msie) objectTag.innerHTML = '<param name="wmode" value="transparent"/>';
 				objectTag.data = src;
 			}
-			if (jQuery.browser.opera && jQuery.browser.majorVersion >= 9.8) objectTag.style.display = "inline";
+			if (jQuery.browser.opera) objectTag.style.display = "inline";
 
 			if (rotation && !jQuery.support.transform)
 				objectTag.addEventListener("load", function(evt) {
@@ -2296,7 +2297,7 @@ jQuery.extend(Navigator.prototype, {
 					handleUI[or][i].style.height = (r.height.value * handleContraintsRatio).toUnit(r.height.unit || "px");
 
 					// Opera (10) does somehow not correctly understand 'width' and 'height'
-					if (jQuery.browser.opera && jQuery.browser.majorVersion >= 9.8) {
+					if (jQuery.browser.opera) {
 						if (or.equals("left", "right", "center"))
 							handleUI[or][i].style.top = ((this.container[or].clientHeight - handleUI[or][i].clientHeight) / 2).px();
 						if (or.equals("top", "bottom", "center"))
@@ -2467,7 +2468,7 @@ jQuery.extend(Navigator, {
 		".image-dimension-background { color: #222; background-color: #222; opacity: 0.5; border-radius: 0.25em; -moz-border-radius: 0.25em; -webkit-border-radius: 0.25em; -khtml-border-radius: 0.25em; -o-border-radius: 0.25em; }"
 	);
 
-	if (jQuery.browser.opera && jQuery.browser.majorVersion >= 9.8) {
+	if (jQuery.browser.opera) {
 		addStyle(
 			Navigator.classNames.handle.css+" > * { position: relative; }",
 			Navigator.classNames.handle.css+" > * > * { position: absolute; }",
@@ -2955,29 +2956,6 @@ $(function() {
 	// start creating navigators
 	prepareImage();
 
-	with ($("form.addComment:first")[0]) {
-		if (!id) {
-			id = "addCommentForm";
-		} else {
-			alert("debug!");debugger;
-			if (globalSettings.debug) alert("The commentary form already has the ID \"" + id + "\".");
-		}
-	}
-	document.forms.addCommentForm.elements.content.addEventListener("keydown", CommentWindowsKeyPressHandlerFunction, false);
-
-	// replace the default tag submit behaviour because it doesn't clear the new tag field afterwards
-	GlobalSettings.image.id = new XPathSearch().evaluate("@onsubmit", document.forms.addTag, XPathResult.STRING_TYPE).result.stringValue.match(/\d{3,}/)[0].toInt();
-	document.forms.addTag.onsubmit = undefined;
-	document.forms.addTag.removeAttribute("onsubmit");
-	document.forms.addTag.elements.save.onclick = undefined;
-	document.forms.addTag.elements.save.removeAttribute("onclick");
-	document.forms.addTag.elements.save.type = "submit";
-	document.forms.addTag.addEventListener("submit", function(evt) {
-		addTags(GlobalSettings.image.id, this.elements.tagText);
-		this.elements.tagText.value = "";
-		evt.preventDefault();
-	}, false);
-
 	// prefetch images
 	if (GlobalSettings.prefetch.previousImage) prefetchImage("#prevBar");
 	if (GlobalSettings.prefetch.nextImage) prefetchImage("#nextBar");
@@ -3026,9 +3004,11 @@ function load_script(src, data, callback, condition) {
 
 load_script(
 	(window.location.protocol == "file:") ? "jquery.js" : "http://gold-gru.be/js/jquery.js",
-	function() {
-		jQuery.noConflict();
-		run(jQuery);
+	function(condition) {
+		if (condition !== false) {
+			jQuery.noConflict();
+			run(jQuery);
+		}
 	},
 	!window.jQuery);
 

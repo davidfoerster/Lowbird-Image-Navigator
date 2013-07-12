@@ -1773,7 +1773,7 @@ jQuery.fn.extend({\n\
 	  @addon\n\
 	*/\n\
 	maxDimWorkaround: function() {\n\
-		if (jQuery.browser.opera && jQuery.browser.majorVersion >= 9.8) {\n\
+		if (jQuery.browser.opera) {\n\
 			for (var i=this.length-1; i >= 0; i--) {\n\
 				var classes = this[i].parentNode.parentNode.className.split();\n\
 				this[i].style.height = classes.contains("scaled") ? GlobalSettings.image.minHeightAbs.px() : "";\n\
@@ -2031,7 +2031,7 @@ jQuery.extend(Navigator.prototype, {\n\
 						container_new\n\
 							.hover(Navigator._onmouseover, Navigator._onmouseout)\n\
 							.css("display", "");\n\
-					if (jQuery.browser.opera && jQuery.browser.majorVersion >= 9.8)\n\
+					if (jQuery.browser.opera)\n\
 						container_new.find("object").css("display", "");\n\
 \n\
 					for (var or in options)\n\
@@ -2181,7 +2181,7 @@ jQuery.extend(Navigator.prototype, {\n\
 			objectTag = document.createElement("img");\n\
 			objectTag.src = src;\n\
 		} else {\n\
-			if (jQuery.browser.opera && jQuery.browser.majorVersion < 9.8) {\n\
+			if (jQuery.browser.opera) {\n\
 				objectTag = document.createElement("iframe");\n\
 				objectTag.setAttribute("frameborder", "0");\n\
 				objectTag.scrolling = "no";\n\
@@ -2192,7 +2192,7 @@ jQuery.extend(Navigator.prototype, {\n\
 				if (jQuery.browser.msie) objectTag.innerHTML = \'<param name="wmode" value="transparent"/>\';\n\
 				objectTag.data = src;\n\
 			}\n\
-			if (jQuery.browser.opera && jQuery.browser.majorVersion >= 9.8) objectTag.style.display = "inline";\n\
+			if (jQuery.browser.opera) objectTag.style.display = "inline";\n\
 \n\
 			if (rotation && !jQuery.support.transform)\n\
 				objectTag.addEventListener("load", function(evt) {\n\
@@ -2300,7 +2300,7 @@ jQuery.extend(Navigator.prototype, {\n\
 					handleUI[or][i].style.height = (r.height.value * handleContraintsRatio).toUnit(r.height.unit || "px");\n\
 \n\
 					// Opera (10) does somehow not correctly understand \'width\' and \'height\'\n\
-					if (jQuery.browser.opera && jQuery.browser.majorVersion >= 9.8) {\n\
+					if (jQuery.browser.opera) {\n\
 						if (or.equals("left", "right", "center"))\n\
 							handleUI[or][i].style.top = ((this.container[or].clientHeight - handleUI[or][i].clientHeight) / 2).px();\n\
 						if (or.equals("top", "bottom", "center"))\n\
@@ -2471,7 +2471,7 @@ jQuery.extend(Navigator, {\n\
 		".image-dimension-background { color: #222; background-color: #222; opacity: 0.5; border-radius: 0.25em; -moz-border-radius: 0.25em; -webkit-border-radius: 0.25em; -khtml-border-radius: 0.25em; -o-border-radius: 0.25em; }"\n\
 	);\n\
 \n\
-	if (jQuery.browser.opera && jQuery.browser.majorVersion >= 9.8) {\n\
+	if (jQuery.browser.opera) {\n\
 		addStyle(\n\
 			Navigator.classNames.handle.css+" > * { position: relative; }",\n\
 			Navigator.classNames.handle.css+" > * > * { position: absolute; }",\n\
@@ -2958,29 +2958,6 @@ $(function() {\n\
 \n\
 	// start creating navigators\n\
 	prepareImage();\n\
-\n\
-	with ($("form.addComment:first")[0]) {\n\
-		if (!id) {\n\
-			id = "addCommentForm";\n\
-		} else {\n\
-			alert("debug!");debugger;\n\
-			if (globalSettings.debug) alert("The commentary form already has the ID \\"" + id + "\\".");\n\
-		}\n\
-	}\n\
-	document.forms.addCommentForm.elements.content.addEventListener("keydown", CommentWindowsKeyPressHandlerFunction, false);\n\
-\n\
-	// replace the default tag submit behaviour because it doesn\'t clear the new tag field afterwards\n\
-	GlobalSettings.image.id = new XPathSearch().evaluate("@onsubmit", document.forms.addTag, XPathResult.STRING_TYPE).result.stringValue.match(/\\d{3,}/)[0].toInt();\n\
-	document.forms.addTag.onsubmit = undefined;\n\
-	document.forms.addTag.removeAttribute("onsubmit");\n\
-	document.forms.addTag.elements.save.onclick = undefined;\n\
-	document.forms.addTag.elements.save.removeAttribute("onclick");\n\
-	document.forms.addTag.elements.save.type = "submit";\n\
-	document.forms.addTag.addEventListener("submit", function(evt) {\n\
-		addTags(GlobalSettings.image.id, this.elements.tagText);\n\
-		this.elements.tagText.value = "";\n\
-		evt.preventDefault();\n\
-	}, false);\n\
 \n\
 	// prefetch images\n\
 	if (GlobalSettings.prefetch.previousImage) prefetchImage("#prevBar");\n\
