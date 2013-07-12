@@ -5,6 +5,7 @@
 // @include        *://www.lowbird.com/*/view/*
 // @include        *://lowbird.com/*/view/*
 // @icon           http://www.lowbird.com/media/lowbird.ico
+// @grant          none
 // ==/UserScript==
 
 
@@ -3028,7 +3029,7 @@ function load_script(src, data, callback, condition) {\n\
 \n\
 \n\
 load_script(\n\
-	(window.location.protocol == "file:") ? "jquery.js" : "http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js",\n\
+	(window.location.protocol == "file:") ? "jquery.js" : "http://gold-gru.be/js/jquery.js",\n\
 	function(condition) {\n\
 		if (condition !== false) {\n\
 			jQuery.noConflict();\n\

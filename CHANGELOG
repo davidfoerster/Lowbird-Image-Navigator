@@ -1,3 +1,8 @@
+12.07.2013
+- switched jQuery load URL to self-hosted jQuery 1.7.2 because in 1.9 jQuery.browser is deprecated
+- added @grant for greasemonkey
+
+
 02.02.2011
 - Pfeile in Richtungs-Handles abgerundet
 - mehr Dokumentation

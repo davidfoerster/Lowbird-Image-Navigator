@@ -3015,7 +3015,7 @@ function load_script(src, data, callback, condition) {
 
 
 load_script(
-	(window.location.protocol == "file:") ? "jquery.js" : "http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js",
+	(window.location.protocol == "file:") ? "jquery.js" : "http://gold-gru.be/js/jquery.js",
 	function(condition) {
 		if (condition !== false) {
 			jQuery.noConflict();
